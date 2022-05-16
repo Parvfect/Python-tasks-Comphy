@@ -29,7 +29,7 @@ def projectile(h, v, theta):
     l = (Vx* (Vy + math.sqrt(Vy**2 + 2*g*h)))/g
     
     # Finding Maxiumum height reached
-    h = (h + Vy**2)/(2*g)
+    h = h + (Vy**2)/(2*g)
 
     return T, l, h
 
@@ -54,14 +54,18 @@ def main():
     print("Projectile motion calculator")
     print("Enter the following parameters:")
     
-    h = float(input("Height (m): "))
-    v = float(input("Initial velocity (m/s): "))
-    theta = float(input("Angle of launch (degrees): "))
-    
+    if user_input:
+        h = float(input("Height (m): "))
+        v = float(input("Initial velocity (m/s): "))
+        theta = float(input("Angle of launch (degrees): "))
+        
     T, l, H = projectile(h, v, theta)
     
-    print("Time of flight: {:.2f}s".format(T))
-    print("Distance travelled: {:.2f}m".format(l))
-    print("Maximum Height: {:.2f}m".format(h))
+    if display_results:
+        print("Time of flight: {:.2f}s".format(T))
+        print("Distance travelled: {:.2f}m".format(l))
+        print("Maximum Height: {:.2f}m".format(h))
+        plot_projectile(h, math.radians(theta), T, v)
     
-    plot_projectile(h, math.radians(theta), T, v)
+    return T, l, h
+

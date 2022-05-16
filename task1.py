@@ -2,7 +2,6 @@
 import math
 import matplotlib.pyplot as plt
 
-a = 1
 
 def t1(a):
     f = [math.exp(a*x) for x in range(100)]
@@ -13,5 +12,5 @@ def t1(a):
     plt.title("f(x) = e^(ax) for a =  {} ".format(a))
     return 
 
-def main():
+def main(a=1):
     t1(a)

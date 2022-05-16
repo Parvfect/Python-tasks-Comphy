@@ -1,20 +1,22 @@
 
-import master as master
-
+import task2 as t2
+import task4 as t4
+import task5 as t5
+import task6 as t6
+import task7 as t7
 """
-Really can only test 1, 2, 4, 5, 6 and 7
+Really can only test 2, 4, 5, 6 and 7
 """
 
-def task1():
-    master.task1()
 
 def task2():
     """ Projectile Motion """
-    master.task2()
+    t,l,h = t2.projectile(20, 20, 20)
+    T, L, H = t2.projectile(0,0,0)
+    assert (round(t,2), round(l,2), round(h,2)) == (2.83, 53.25, 22.38)
+    assert (T,L,H) == (0.0, 0.0, 0.0)
 
-def task3():
-    """ Radiation field of a star"""
-    master.task3()
+    print("Tests for Task 2 passed")
 
 def task4():
     """ Random number generator """
@@ -33,3 +35,6 @@ def task7():
     master.task7()
 
 
+
+
+task2()
